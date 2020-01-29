@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>To-Do list!</h3>
+
+  <hr>
+    {% if tasks %}
+    <div class='list'> <!-- This hold all the todo cards. -->
+      {% for task in tasks %}
+        {% include 'task/partials/card.html' %}
+      {% endfor %}
+    </div>
+      {% else %}
+        <p> No kits to display </p>
+    {% endif %}
+  </hr>
+{% endblock %}

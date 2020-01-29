@@ -1,0 +1,8 @@
+<div class='card'>
+  <h5>{{ task.name }}</h5>
+  {% if task.description %}
+    <p>{{ task.description }}</p>
+  {% else %}
+    <p>No description</p>
+  {% endif %}
+</div>
