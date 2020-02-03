@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 # Create your models here.
@@ -20,3 +21,11 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TaskForm(ModelForm):
+    """Form for a new task"""
+
+    class Meta:
+        model = Task
+        fields = ['name', 'description']

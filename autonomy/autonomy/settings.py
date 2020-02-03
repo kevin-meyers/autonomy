@@ -55,7 +55,7 @@ ROOT_URLCONF = 'autonomy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates', 'task/templates/task'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

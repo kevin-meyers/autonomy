@@ -13,5 +13,6 @@
       {% else %}
         <p> No tasks to display </p>
     {% endif %}
+    <a href="{% url 'task-new' %}"><button>New Task</button></a>
   </hr>
 {% endblock %}
