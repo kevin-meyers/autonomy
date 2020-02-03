@@ -13,7 +13,8 @@ class Task(models.Model):
     """
 
     name = models.CharField(max_length=100, help_text="The name of the task")
-    description = models.CharField(blank=True, help_text="More details")
+    description = models.CharField(max_length=1000, blank=True,
+                                   help_text="More details")
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
 
