@@ -12,7 +12,13 @@ class TaskList(ListView):
 
     def get(self, request):
         """Get and display the list of tasks"""
-        tasks = self.get_queryset().all().order_by('-created_at')
+        tasks = list(self.get_queryset().all().order_by('-created_at'))
+
+        # TODO: Optimize
+        for task in tasks:
+            if task.pinned is True:
+                tasks.insert(0, tasks.pop(tasks.index(task)))
+
         return render(request, 'task/list.html', {'tasks': tasks})
 
 
@@ -31,8 +37,20 @@ class NewTaskView(CreateView):
 
 
 def RemoveTask(request):
+    # Pass id from url tag.
     id = request.POST.get("delete", "")
     task = Task.objects.get(id=id)
     task.delete()
 
+    return redirect('task-list-view')
+
+
+def PinTask(request, id):
+    task = Task.objects.get(id=id)
+    if task.pinned is False:
+        task.pinned = True
+    else:
+        task.pinned = False
+
+    task.save()
     return redirect('task-list-view')
