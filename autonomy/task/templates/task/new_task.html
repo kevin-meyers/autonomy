@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Create New Task!</h1>
 <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
+  {% csrf_token %}
+  {% for field in form %}
+    <h3>{{ field.name }}</h3> {{ field.help_text }}:<br/>
+    {{ field }}<br/>
+  {% endfor %}
+    <input type="submit" value="Create Task">
 </form>
 {% endblock %}
