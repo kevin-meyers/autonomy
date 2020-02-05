@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -28,3 +28,11 @@ class NewTaskView(CreateView):
         # It should return an HttpResponse.
         form.save()
         return super().form_valid(form)
+
+
+def RemoveTask(request):
+    id = request.POST.get("delete", "")
+    task = Task.objects.get(id=id)
+    task.delete()
+
+    return redirect('task-list-view')
