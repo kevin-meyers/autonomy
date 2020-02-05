@@ -5,4 +5,9 @@
   {% else %}
     <p>No description</p>
   {% endif %}
+  <form action="{% url 'task-remove' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="delete" value="{{ task.id }}">Delete</button>
+  </form>
+
 </div>
