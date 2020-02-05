@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
->>>>>>> 195514f... Created new app and added to settings.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
