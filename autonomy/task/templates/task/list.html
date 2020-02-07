@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if auth == True %}
   <h3>To-Do list!</h3>
 
   <hr>
@@ -15,4 +16,7 @@
     {% endif %}
     <a href="{% url 'task-new' %}"><button>New Task</button></a>
   </hr>
+{% else %}
+  <p>Please sign in to view to-do list.</p>
+{% endif %}
 {% endblock %}
