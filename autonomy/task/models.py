@@ -11,6 +11,8 @@ class Task(models.Model):
         description (optional) - More details on the task
         created_at - The date and time the task was created
         updated_at - The date and time the task was updated
+        pinned - If the task is pinned
+        project - Project this task is a part of
     """
 
     name = models.CharField(max_length=100, help_text="The name of the task")
@@ -20,6 +22,8 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     pinned = models.BooleanField(default=False)
+
+    project = models.ForeignKey('project.Project', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
