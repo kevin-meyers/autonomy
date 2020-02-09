@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Autonomy</title>
+  <meta charset="UTF-8">
+  <title>Autonomy</title>
 </head>
 <body>
-	{% block content %}{% endblock %}
+  <!-- This is where we will add the side bar -->
+  {% include 'partials/side_bar.html' %}
+  {% block content %}{% endblock %}
 </body>
 </html>
