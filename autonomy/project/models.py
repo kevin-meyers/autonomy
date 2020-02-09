@@ -15,5 +15,3 @@ class Project(models.Model):
     description = models.CharField(max_length=10000, blank=True)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-
