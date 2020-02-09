@@ -14,12 +14,19 @@ class TaskList(ListView):
         """Get and display the list of tasks"""
         tasks = list(self.get_queryset().all().order_by('-created_at'))
 
+        username = None
+        auth = request.user.is_authenticated
+        if auth:
+            username = request.user.username
+
         # TODO: Optimize
         for task in tasks:
             if task.pinned is True:
                 tasks.insert(0, tasks.pop(tasks.index(task)))
 
-        return render(request, 'task/list.html', {'tasks': tasks})
+        return render(request, 'task/list.html', {'tasks': tasks,
+                                                  'auth': auth,
+                                                  'username': username})
 
 
 class NewTaskView(CreateView):
