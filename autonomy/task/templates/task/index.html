@@ -29,7 +29,7 @@
             <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
           </li>
           <li>
-              <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+              <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span>Download</a>
           </li>
           <li>
             <a href="#"><span class="fa fa-gift mr-3"></span> Planner </a>
@@ -69,7 +69,7 @@
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 <ul class="nav navbar-nav ml-auto">
                   <li class="nav-item active">
-                      <a class="nav-link" href="#">Home</a>
+                      <a class="nav-link" href="{% url 'task-new' %}">New Task</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">About</a>
@@ -100,14 +100,12 @@
 
           <!-- BOOTSTRAP BUTTON -->
 
-
             <ul class="slides">
-              <!-- <li class="slide slide1">Slide 1 -->
-
+                {% for task in tasks %}
                 <li class="slide card w-75">
                   <div class="card-body">
-                    <h5 class="card-title">TODO Title 1</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">{{ task.name }}</h5>
+                    <p class="card-text text-black-50">{{ task.description }}</p>
 
                     <div class="btn-group-fab" role="group" aria-label="FAB Menu">
                       <div>
@@ -118,110 +116,7 @@
                       </div>
                   </div>
                 </li>
-
-      
-              <!-- </li> -->
-              
-              <!-- <li class="slide slide1">Slide 1 -->
-
-                <li class="slide card w-75">
-                  <div class="card-body">
-                    <h5 class="card-title">TODO Title 2</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Fullscreen"> <i class="fa fa-arrows-alt"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Download"> <i class="fa fa-download"></i> </button>
-                      </div>
-                  </div>
-                </li>
-
-      
-              <!-- </li> -->
-              
-              <!-- <li class="slide slide1">Slide 1 -->
-
-                <li class="slide card w-75">
-                  <div class="card-body">
-                    <h5 class="card-title">TODO Title 3</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Fullscreen"> <i class="fa fa-arrows-alt"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Download"> <i class="fa fa-download"></i> </button>
-                      </div>
-                  </div>
-                </li>
-
-      
-              <!-- </li> -->
-              
-              <!-- <li class="slide slide1">Slide 1 -->
-
-                <li class="slide card w-75">
-                  <div class="card-body">
-                    <h5 class="card-title">TODO Title 4</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Fullscreen"> <i class="fa fa-arrows-alt"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Download"> <i class="fa fa-download"></i> </button>
-                      </div>
-                  </div>
-                </li>
-
-      
-              <!-- </li> -->
-              
-              <!-- <li class="slide slide1">Slide 1 -->
-
-                <li class="slide card w-75">
-                  <div class="card-body">
-                    <h5 class="card-title">TODO Title 5</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Fullscreen"> <i class="fa fa-arrows-alt"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Download"> <i class="fa fa-download"></i> </button>
-                      </div>
-                  </div>
-                </li>
-
-      
-              <!-- </li> -->
-              
-              <!-- <li class="slide slide1">Slide 1 -->
-
-                <li class="card w-75">
-                  <div class="card-body">
-                    <h5 class="card-title">TODO Title 1</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Fullscreen"> <i class="fa fa-arrows-alt"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Download"> <i class="fa fa-download"></i> </button>
-                      </div>
-                  </div>
-                </li>
-
-      
-              <!-- </li> -->
-              
+                {% endfor %}
             </ul>
           </div>
         </div>
