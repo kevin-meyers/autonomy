@@ -1,20 +1,21 @@
-<div class='card'>
-  <h5>{{ task.name }}</h5>
-  {% if task.description %}
-    <p>{{ task.description }}</p>
-  {% else %}
-    <p>No description</p>
-  {% endif %}
-  <form action="{% url 'task-remove' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" name="delete" value="{{ task.id }}">Delete</button>
-  </form>
-  <a href="{% url 'task-pin' task.id %}">
-        {% if task.pinned == True %}
-        Unpin
+<li class="slide card w-75">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.name }}</h5>
+      <p class="card-text text-black-50"> 
+        {% if task.description %}
+        {{ task.description }}
         {% else %}
-        Pin
-        {% endif %}
-  </a>
+        No description
+        {% endif %}</p>
 
-</div>
+      <div class="btn-group-fab" role="group" aria-label="FAB Menu">
+        <div>
+          <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
+          <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Pin/Unpin"> <i class="fa fa-arrows-alt"></i></button>
+          <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
+          <form action="{% url 'task-remove' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" name="delete" class="btn btn-sub btn-warning has-tooltip" data-placement="left" value="{{ task.id }}" title="Delete"> <i class="fa fa-trash-o"></i> </button></form>
+        </div>
+    </div>
+  </li>
