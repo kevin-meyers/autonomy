@@ -1,7 +1,7 @@
 from django.urls import path
 from project.views import NewProject
 
-app = 'project'
+app_name = 'project'
 urlpatterns = [
-    path('create', NewProject.as_view(), name="create"),
- 
+    path('create', NewProject, name='create'),
+]

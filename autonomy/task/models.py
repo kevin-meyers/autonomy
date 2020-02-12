@@ -1,5 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
+from project.models import Project
 
 
 # Create your models here.
