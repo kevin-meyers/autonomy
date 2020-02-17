@@ -6,16 +6,19 @@
         {{ task.description }}
         {% else %}
         No description
+        {% endif %}
+        {% if task.pinned %}
+        <br>
+        Pinned
         {% endif %}</p>
-
       <div class="btn-group-fab" role="group" aria-label="FAB Menu">
         <div>
           <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-          <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Pin/Unpin"> <i class="fa fa-arrows-alt"></i></button>
-          <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Save"> <i class="fa fa-floppy-o"></i> </button>
-          <form action="{% url 'task-remove' %}" method="post">
-          {% csrf_token %}
-          <button type="submit" name="delete" class="btn btn-sub btn-warning has-tooltip" data-placement="left" value="{{ task.id }}" title="Delete"> <i class="fa fa-trash-o"></i> </button></form>
+          <button type="submit" name="pin" form="form-pin" class="btn btn-sub btn-info has-tooltip" value="{{ task.id }}" data-placement="left" title="Pin/Unpin"> <i class="fa fa-map-pin"></i></button>
+          <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Placeholder"> <i class="fa fa-arrows-alt"></i> </button>
+          <button type="submit" form="form-delete" name="delete" class="btn btn-sub btn-warning has-tooltip" data-placement="left" value="{{ task.id }}" title="Delete"> <i class="fa fa-trash-o"></i> </button>
+          <form id="form-delete" action="{% url 'task-remove' %}" method="post">{% csrf_token %}</form>
+          <form id="form-pin" action="{% url 'task-pin' %}" method="post">{% csrf_token %}</form>
         </div>
     </div>
   </li>

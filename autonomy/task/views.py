@@ -54,7 +54,9 @@ def RemoveTask(request):
     return redirect('task-list-view')
 
 
-def PinTask(request, id):
+def PinTask(request):
+    # Pass id from url tag
+    id = request.POST.get("pin", "")
     task = Task.objects.get(id=id)
     if task.pinned is False:
         task.pinned = True
