@@ -104,8 +104,8 @@ else:
             'HOST': '127.0.0.1',
             'PORT': '3306',
             'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('USERNAME'),
-            'PASSWORD': os.getenv('PASSWORD'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
         }
     }
 # [END db_setup]
@@ -149,3 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Google App Engine: set static root for local static files
+# https://cloud.google.com/appengine/docs/flexible/python/serving-static-files
+STATIC_ROOT = 'static'
