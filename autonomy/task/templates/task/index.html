@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 09</title>
+  	<title>Task List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,8 +20,10 @@
 			<nav id="sidebar">
 	  		<div class="img bg-wrap text-center py-4" style="background-image: url(static/task/images/bg_1.jpg);">
 	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(static/task/images/sittingfire.jpg);"></div>
-	  				<h3>Donald Vallejo</h3>
+                      <div class="img" style="background-image: url(static/task/images/sittingfire.jpg);"></div>
+                    {% if auth == True %}
+                      <h3>{{ username }}</h3>
+                    {% endif %}
 	  			</div>
 	  		</div>
         <ul class="list-unstyled components mb-5">
@@ -43,9 +45,18 @@
           <li>
             <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
           </li>
+          {% if auth == True %}
           <li>
-            <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+            <a href="{% url 'logout' %}"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
           </li>
+          {% else %}
+          <li>
+            <a href="{% url 'login' %}"><span class="fa fa-sign-out mr-3"></span>Log In</a>
+          </li>
+          <li>
+            <a href="{% url 'signup' %}"><span class="fa fa-sign-out mr-3"></span>Sign Up</a>
+          </li>
+          {% endif %}
         </ul>
 
     	</nav>
@@ -100,11 +111,15 @@
 
           <!-- BOOTSTRAP BUTTON -->
 
-            <ul class="slides">
-                {% for task in tasks %}
-                    {% include 'partials/card.html' %}
-                {% endfor %}
-            </ul>
+            {% if auth == True %}
+                <ul class="slides">
+                    {% for task in tasks %}
+                        {% include 'partials/card.html' %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p>Please sign in to view tasks</p>
+            {% endif %}
           </div>
         </div>
     </div>
