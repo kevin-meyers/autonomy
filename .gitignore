@@ -3,3 +3,6 @@ Pipfile.lock
 .env
 *.pyc
 __pycache__/
+bootstrap/
+.DS_Store
+bootstrap.min.css

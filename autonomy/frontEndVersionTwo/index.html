@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Autonomy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bubbles.css">
+    
+  </head>
+  <main>
+  <body style="background-image: url('images/paperBackground.jpg');">
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+	  		<div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+	  			<div class="user-logo">
+	  				<div class="img" style="background-image: url(images/sittingfire.jpg);"></div>
+	  				<h3>Donald Vallejo</h3>
+	  			</div>
+	  		</div>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li>
+              <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-plus mr-3"></span>New Project</a>
+          </li>
+          
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-sign-out-alt mr-3"></span> Sign Out</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="content">
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+  
+              <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary" title="Open/Close Sidebar">
+                  <i class="fa fa-arrows-alt-h"></i>
+                </button>
+                <button type="button" id="newToDo" class="btn btn-success" title="Add New ToDo">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+      
+              <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+              </button>
+  
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <input class="form-control" type="text" placeholder="Search" aria-label="Search"> -->
+                <ul class="nav navbar-nav ml-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- BOOTSTRAP BUTTON -->
+            <ul class="slides">
+              <!-- <li class="slide slide1">Slide 1 --> 
+
+                <li class="slide card w-100">
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">TODO Title 1</h5> -->
+                    <form id="ToDo-form" class="form" action="#" method="POST" role="form">
+                      <div class="form-group">
+                          <!-- <label class="form-label" for="name">Your Name</label> -->
+                          <input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1">
+                      </div>                            
+                      <div class="form-group">
+                          <input type="datetime-local" class="form-control" id="time" name="subject" placeholder="Due by" tabindex="3">
+                      </div>                            
+                      <div class="form-group">
+                          <!-- <label class="form-label" for="message">Message</label> -->
+                          <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4"></textarea>                                 
+                      </div>
+                  </form>
+
+                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
+                      <div>
+                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
+                        <button type="button" class="btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>
+                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>
+                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>
+                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>
+                      </div>
+                  </div>
+                </li>
+                
+
+
+
+
+
+
+
+            </ul>
+          </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>    
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</main>
+</html>
+
+<!-- https://codepen.io/Snarkie3/pen/XmvRQM -->
+<!-- https://codepen.io/iamgarth/pen/oEQgmx -->
+<!-- https://codepen.io/WebFikirleri/pen/MLXYKm -->
+<!-- https://codepen.io/stephanrusu/pen/QwKLJX -->
