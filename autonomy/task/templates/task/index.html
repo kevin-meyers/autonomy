@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Task List{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            </button>
+            </div>
+
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'task-new' %}">New Task</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+
+        <!-- SASS BUTTON -->
+
+        <!-- <input type="checkbox" class="nav--checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav--button">
+        <span>&nbsp;</span>
+        </label>
+        <div class="nav--small nav--btn-1">
+        <a href="#"><i class="fas fa-star"></i></a>
+        </div>
+        <div class="nav--small nav--btn-2">
+        <a href="#"><i class="fas fa-reply"></i></a>
+        </div>
+        <div class="nav--small nav--btn-3">
+        <a href="#"><i class="fas fa-pen-square"></i></a>
+        </div> -->
+
+        <!-- BOOTSTRAP BUTTON -->
+
+        {% if auth == True %}
+            <ul class="slides">
+                {% for task in tasks %}
+                    {% include 'partials/card.html' %}
+                {% endfor %}
+            </ul>
+        {% else %}
+        <p>Please sign in to view tasks</p>
+        {% endif %}
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>    
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <script src="{% static 'task/js/script.js' %}"></script>
+    <script src="{% static 'task/js/main.js' %}"></script>
+{% endblock %}
+
+<!-- https://codepen.io/Snarkie3/pen/XmvRQM -->
+<!-- https://codepen.io/iamgarth/pen/oEQgmx -->
+<!-- https://codepen.io/WebFikirleri/pen/MLXYKm -->
+<!-- https://codepen.io/stephanrusu/pen/QwKLJX -->

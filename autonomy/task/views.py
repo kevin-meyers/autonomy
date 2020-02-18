@@ -8,6 +8,7 @@ from task.models import Task, TaskForm
 # Create your views here.
 class TaskList(ListView):
     """Basic overall view of tasks"""
+
     model = Task
 
     def get(self, request):
@@ -24,9 +25,9 @@ class TaskList(ListView):
             if task.pinned is True:
                 tasks.insert(0, tasks.pop(tasks.index(task)))
 
-        return render(request, 'task/list.html', {'tasks': tasks,
-                                                  'auth': auth,
-                                                  'username': username})
+        return render(request, 'task/index.html', {'tasks': tasks,
+                                                   'auth': auth,
+                                                   'username': username})
 
 
 class NewTaskView(CreateView):
@@ -37,8 +38,9 @@ class NewTaskView(CreateView):
     success_url = reverse_lazy('task-list-view')
 
     def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
+        """This method is called when valid form data has been POSTed.
+        It should return an HttpResponse.
+        """
         form.save()
         return super().form_valid(form)
 
@@ -52,7 +54,9 @@ def RemoveTask(request):
     return redirect('task-list-view')
 
 
-def PinTask(request, id):
+def PinTask(request):
+    # Pass id from url tag
+    id = request.POST.get("pin", "")
     task = Task.objects.get(id=id)
     if task.pinned is False:
         task.pinned = True
