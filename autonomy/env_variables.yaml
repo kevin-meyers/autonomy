@@ -1,0 +1,7 @@
+env_variables:
+  SECRET_KEY: 'u_1hcaswhjyk_$uh5np_1bg!axqv%ho7hleuwooyrutyecn0pe'
+  DB_CONNECTION: 'angular-lambda-268517:us-west2:autonomy-db'
+  DB_NAME: 'autonomy'
+  DB_USER: 'root'
+  DB_PASSWORD: 'TesistroPhydRenTaGendOuT'
+  PRODUCTION: True
