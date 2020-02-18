@@ -12,3 +12,6 @@ handlers:
 - url: /.*
   script: auto
 # [END django_app]
+
+includes:
+- env_variables.yaml

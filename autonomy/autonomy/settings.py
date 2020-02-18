@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 
-if not os.getenv('production'):
+if not os.getenv('PRODUCTION'):
     from dotenv import load_dotenv
     load_dotenv()
 
@@ -81,15 +81,15 @@ WSGI_APPLICATION = 'autonomy.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # [START db_setup]
-if os.getenv('GAE_APPLICATION', None):
+if os.getenv('PRODUCTION'):
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'HOST': f'/cloudsql/{os.getenv("DB_CONNECTION")}',
-            'USER': os.getenv('USERNAME'),
-            'PASSWORD': os.getenv('PASSWORD'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
             'NAME': os.getenv('DB_NAME'),
         }
     }
