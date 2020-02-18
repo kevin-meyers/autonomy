@@ -2,6 +2,7 @@ Pipfile
 Pipfile.lock
 .env
 *.pyc
+*.DS_Store*
 __pycache__/
 env_variables
 static/

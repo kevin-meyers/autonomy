@@ -5,5 +5,5 @@ urlpatterns = [
     path('', TaskList.as_view(), name="task-list-view"),
     path('new', NewTaskView.as_view(), name="task-new"),
     path('remove', RemoveTask, name="task-remove"),
-    path('pin/<int:id>', PinTask, name="task-pin"),
+    path('pin', PinTask, name="task-pin"),
 ]
