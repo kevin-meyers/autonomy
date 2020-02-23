@@ -17,13 +17,16 @@
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
-	  		<div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
-	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(images/sittingfire.jpg);"></div>
-	  				<h3>Donald Vallejo</h3>
-	  			</div>
-	  		</div>
-        <ul class="list-unstyled components mb-5">
+
+        <ul class="list-unstyled components mb-5" style="position:fixed; width:300px;">
+          <li class="active">
+            <div class="img bg-wrap text-center" style="background-image: url(images/bg_1.jpg);">
+              <div class="user-logo">
+                <div class="img" style="background-image: url(images/sittingfire.jpg);"></div>
+                <h3>Donald Vallejo</h3>
+              </div>
+            </div>
+          </li>
           <li class="active">
             <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
           </li>
@@ -53,6 +56,15 @@
             <a href="#"><span class="fa fa-newspaper mr-3"></span>Project Name</a>
           </li>
           <li>
+            <a href="#"><span class="fa fa-newspaper mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-newspaper mr-3"></span>Project Name</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-newspaper mr-3"></span>Project Name</a>
+          </li>
+          <li>
             <a href="#"><span class="fa fa-sign-out-alt mr-3"></span> Sign Out</a>
           </li>
         </ul>
@@ -62,7 +74,7 @@
         <!-- Page Content  -->
         <div id="content" class="content">
 
-          <nav class="navbar navbar-expand-lg">
+          <nav class="navbar navbar-expand-lg" id="navbarHeader">
             <div class="container-fluid">
               <div class="custom-menu">
                 <button type="button" id="sidebarCollapse" class="btn btn-primary " title="Open/Close Sidebar">
@@ -91,9 +103,12 @@
               </div>
             </div>
           </nav>
-              <ul class="slides">
+              <ul class="slides" id="slidesid">
+
                 <!-- To Do Card -->
-                <li class="slide card w-100">
+                <li>
+                <div class="slide card w-75">
+
                   <div class="card-body">
                     <button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>
                     <!-- <h5 class="card-title">TODO Title 1</h5> -->
@@ -112,71 +127,16 @@
                     <div class="btn-group-fab" role="group" aria-label="FAB Menu">
                       <div>
                         <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide Sub ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>
+                        <button type="button" class="newSub btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>
+                        <button type="button" class="delete btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>
+                        <button type="button" class="crossOff btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>
+                        <button type="button" class="hideSub btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide Sub ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>
                       </div>
                   </div>
-                </li>
+                </div>
+              </li>
                 <!-- End of To Do Card -->
-                <!-- To Do Card -->
-                <li class="slide card w-100">
-                  <div class="card-body">
-                    <button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>
-                    <!-- <h5 class="card-title">TODO Title 1</h5> -->
-                    <form id="ToDo-form" class="form" action="#" method="POST" role="form">
-                      <div class="form-group">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1" title="What do you want to do?">
-                      </div>                            
-                      <div class="form-group">
-                          <input type="datetime-local" class="form-control" id="time" name="subject" placeholder="Due by" tabindex="3">
-                      </div>                            
-                      <div class="form-group">
-                          <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Description..." tabindex="4" title="Description field"></textarea>                                 
-                      </div>
-                  </form>
 
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide Sub ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>
-                      </div>
-                  </div>
-                </li>
-                <!-- End of To Do Card -->
-                <!-- To Do Card -->
-                <li class="slide card w-100">
-                  <div class="card-body">
-                    <button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>
-                    <!-- <h5 class="card-title">TODO Title 1</h5> -->
-                    <form id="ToDo-form" class="form" action="#" method="POST" role="form">
-                      <div class="form-group">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1" title="What do you want to do?">
-                      </div>                            
-                      <div class="form-group">
-                          <input type="datetime-local" class="form-control" id="time" name="subject" placeholder="Due by" tabindex="3">
-                      </div>                            
-                      <div class="form-group">
-                          <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Description..." tabindex="4" title="Description field"></textarea>                                 
-                      </div>
-                  </form>
-
-                    <div class="btn-group-fab" role="group" aria-label="FAB Menu">
-                      <div>
-                        <button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>
-                        <button type="button" class="btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>
-                        <button type="button" class="btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>
-                        <button type="button" class="btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide Sub ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>
-                      </div>
-                  </div>
-                </li>
-                <!-- End of To Do Card -->
-          
             </ul>
           </div>
         </div>

@@ -1,3 +1,100 @@
+$(document).ready(function(){
+    var height1 = $("#content").height()
+    var sidebarheight = $("#sidebar").height()
+    if( height1 > sidebarheight) {
+        $("#sidebar").height(height1)
+    }
+    // side bar button slide
+    var isMinimized = false;
+    $( "#sidebarCollapse" ).on( "click", function() {
+        if(isMinimized) {
+            console.log("is Minimized = TRUE!!!!!")
+            $("#navbarHeader").removeClass("navbar1").addClass("navbar")
+
+            isMinimized = false;
+        } else {
+            console.log("is Minimized = FALSE!!!!!")
+            $("#navbarHeader").removeClass("navbar").addClass("navbar1")
+            isMinimized = true;            
+        }
+
+  });
+
+  $('#buttonExpander').on('click', '.btn-main', function() {
+    console.log("clickty click")
+    $(this).parent().parent().toggleClass('active');
+});
+
+$('has-tooltip').tooltip();
+
+  $("#newToDo").on("click", function(){
+      $('#slidesid').prepend('<li><div class="slide card w-75">'+
+      '<div class="card-body">'+
+        '<button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>'+
+        '<form id="ToDo-form" class="form" action="#" method="POST" role="form">'+
+          '<div class="form-group">'+
+              '<input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1" title="What do you want to do?">'+
+          '</div>'+                            
+          '<div class="form-group">'+
+              '<input type="datetime-local" class="form-control" id="time" name="subject" placeholder="Due by" tabindex="3">'+
+          '</div>'+                            
+          '<div class="form-group">'+
+              '<textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Description..." tabindex="4" title="Description field"></textarea>'+                                 
+          '</div>'+
+      '</form>'+
+        '<div class="btn-group-fab" id="buttonExpander" role="group" aria-label="FAB Menu">'+
+          '<div>'+
+            '<button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>'+
+            '<button type="button" class="newSub btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>'+
+            '<button type="button" class="delete btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>'+
+            '<button type="button" class="crossOff btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>'+
+            '<button type="button" class="hideSub btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide Sub ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>'+
+          '</div>'+
+      '</div>'+
+    '</div></li>');
+  })
+
+  $("#slidesid").on("click", ".newSub", function(){
+      //$('#slidesid').append('<li class="slide card w-50">'+
+      $(this).parent().parent().parent().parent().parent().append('<div class="slide card w-50" style="margin-left: 12% ;">'+
+      '<div class="card-body">'+
+        '<button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>'+
+        '<form id="ToDo-form" class="form" action="#" method="POST" role="form">'+
+          '<div class="form-group">'+
+              '<input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1" title="What do you want to do?">'+
+          '</div>'+                            
+          '<div class="form-group">'+
+              '<input type="datetime-local" class="form-control" id="time" name="subject" placeholder="Due by" tabindex="3">'+
+          '</div>'+                            
+          '<div class="form-group">'+
+              '<textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Description..." tabindex="4" title="Description field"></textarea>'+                                 
+          '</div>'+
+      '</form>'+
+        '<div class="btn-group-fab" id="buttonExpander" role="group" aria-label="FAB Menu">'+
+          '<div>'+
+            '<button type="button" class="btn btn-main btn-primary has-tooltip" data-placement="left" title="Menu"> <i class="fa fa-bars"></i> </button>'+
+            '<button type="button" class="newSub btn btn-sub btn-success has-tooltip" data-placement="left" title="New Sub ToDo"> <i class="fa fa-plus"></i> </button>'+
+            '<button type="button" class="delete btn btn-sub btn-danger has-tooltip" data-placement="left" title="Delete"> <i class="fa fa-trash"></i> </button>'+
+            '<button type="button" class="crossOff btn btn-sub btn-warning has-tooltip" data-placement="left" title="Cross Off"> <i class="fa fa-check"></i> </button>'+
+            '<button type="button" class="hideSub btn btn-sub btn-info has-tooltip" data-placement="left" title="Show/Hide Sub ToDo"> <i class="fa fa-arrows-alt-v "></i> </button>'+
+          '</div>'+
+      '</div>'+
+    '</div>');
+  })
+
+  $('.crossOff').on('click', function() {
+      console.log("clicked cross off")
+      $("#name").attr('style', "text-decoration-line: line-through;")
+      $("#time").attr('style', "text-decoration-line: line-through;")
+      $("#message").attr('style', "text-decoration-line: line-through;")
+  })
+
+  $('.delete').on('click', function() {
+    console.log("clicked delete")
+    $(this).parent().parent().parent().parent().parent().remove();
+});
+
+})
 // TODO Sliding Cards
 $(".slides").sortable({
     placeholder: 'slide-placeholder',
@@ -31,51 +128,12 @@ $(".slides").sortable({
        $(".slide-placeholder-animator").remove();  
    },
 });
-// FORM LOGIC
-// Hide labels by default if placeholders are supported
-if($.support.placeholder) {
-    $('.form-label').each(function(){
-        $(this).addClass('js-hide-label');
-    });  
 
-    // Code for adding/removing classes here
-    $('.form-group').find('input, textarea').on('keyup blur focus', function(e){
-        
-        // Cache our selectors
-        var $this = $(this),
-            $label = $this.parent().find("label");
-                
-                    switch(e.type) {
-                        case 'keyup': {
-                             $label.toggleClass('js-hide-label', $this.val() == '');
-                        } break;
-                        case 'blur': {
-                            if( $this.val() == '' ) {
-                $label.addClass('js-hide-label');
-            } else {
-                $label.removeClass('js-hide-label').addClass('js-unhighlight-label');
-            }
-                        } break;
-                        case 'focus': {
-                            if( $this.val() !== '' ) {
-                $label.removeClass('js-unhighlight-label');
-            }
-                        } break;
-                        default: break;
-                    }
-    });
-} 
-
-// side bar button slide
-$( "#sidebarCollapse" ).on( "click", function() {
-    $( ".navbar" ).css( "left", "5% !important" );
-  });
 
 // menu bubble button logic
 $(function() {
-$('.btn-group-fab').on('click', '.btn', function() {
-    // $('.btn-group-fab').toggleClass('active');
-    $(this).parent().parent().toggleClass('active');
-});
-$('has-tooltip').tooltip();
+    $('body').on('click', '.btn-main', function() {
+        $(this).parent().parent().toggleClass('active');
+    });
+    $('has-tooltip').tooltip();
 });
