@@ -30,7 +30,7 @@ $('has-tooltip').tooltip();
   $("#newToDo").on("click", function(){
       $('#slidesid').prepend('<li><div class="slide card w-75">'+
       '<div class="card-body">'+
-        '<button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>'+
+        '<button type="button" class="pin btn btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>'+
         '<form id="ToDo-form" class="form" action="#" method="POST" role="form">'+
           '<div class="form-group">'+
               '<input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1" title="What do you want to do?">'+
@@ -58,7 +58,7 @@ $('has-tooltip').tooltip();
       //$('#slidesid').append('<li class="slide card w-50">'+
       $(this).parent().parent().parent().parent().parent().append('<div class="slide card w-50" style="margin-left: 12% ;">'+
       '<div class="card-body">'+
-        '<button type="button" class="btn pin btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>'+
+        '<button type="button" class="pin btn btn-light has-tooltip" data-placement="left" title="Pin to top"> <i class="fa fa-thumbtack"></i> </button>'+
         '<form id="ToDo-form" class="form" action="#" method="POST" role="form">'+
           '<div class="form-group">'+
               '<input type="text" class="form-control" id="name" name="name" placeholder="To Do" tabindex="1" title="What do you want to do?">'+
@@ -92,6 +92,11 @@ $('has-tooltip').tooltip();
   $('.delete').on('click', function() {
     console.log("clicked delete")
     $(this).parent().parent().parent().parent().parent().remove();
+});
+
+$('.pin').on('click', function() {
+    console.log("clicked delete")
+    $(this).attr('style', "background-color: red");
 });
 
 })
