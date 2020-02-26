@@ -25,6 +25,15 @@ class Task(models.Model):
         return self.name
 
 
+class SubTask(Task):
+    """Model for a subtask.
+
+    Has all properties of Task, plus a relationship to that task
+    """
+
+    parent = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+
 class TaskForm(ModelForm):
     """Form for a new task"""
 
