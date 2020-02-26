@@ -30,6 +30,7 @@ class SubTask(models.Model):
 
     Has all properties of Task, plus a relationship to that task
     """
+
     name = models.CharField(max_length=100, help_text="The name of the task")
     description = models.CharField(max_length=1000, blank=True,
                                    help_text="More details")
