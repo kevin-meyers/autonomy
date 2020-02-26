@@ -4,3 +4,5 @@ Pipfile.lock
 *.pyc
 *.DS_Store*
 __pycache__/
+env_variables
+static/
