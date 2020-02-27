@@ -17,7 +17,6 @@ $(document).ready(function(){
             $("#navbarHeader").removeClass("navbar").addClass("navbar1")
             isMinimized = true;            
         }
-
   });
 
   $('#buttonExpander').on('click', '.btn-main', function() {
@@ -82,21 +81,42 @@ $('has-tooltip').tooltip();
     '</div>');
   })
 
-  $('.crossOff').on('click', function() {
-      console.log("clicked cross off")
-      $("#name").attr('style', "text-decoration-line: line-through;")
-      $("#time").attr('style', "text-decoration-line: line-through;")
-      $("#message").attr('style', "text-decoration-line: line-through;")
+  $('body').on('click', '.newProject', function(){
+      console.log(this)
+      $('ul.sideBarContent').append('<li>' + '<a href="#"><span class="fa fa-newspaper mr-3"></span>Project Name</a>'+ '</li>')
   })
 
-  $('.delete').on('click', function() {
+  // TODO 
+  $('span').bind('dblclick', function(){
+        console.log(this)
+        console.log($(this).siblings("p")[0])
+        $(this).siblings("p").attr('contentEditable',true);
+    });
+
+  $('body').on('click', '.hideSub', function(){
+      console.log($(this).parent().parent().parent().parent().parent().find(".slide"))
+      $(this).parent().parent().parent().parent().parent().find(".slide.w-50").fadeToggle()
+  })
+
+  $('body').on('click', '.crossOff', function(e) {
+      console.log("clicked cross off")
+      console.log($(this))
+      const el = $(this).parent().parent().parent().parent()
+
+      $(el).toggleClass("cross")
+      $(".time").toggleClass("cross")
+      $("#message").toggleClass("cross")
+  })
+
+  $('body').on('click', '.delete', function(e) {
     console.log("clicked delete")
-    $(this).parent().parent().parent().parent().parent().remove();
+    $(this).parent().parent().parent().parent().remove();
 });
 
-$('.pin').on('click', function() {
-    console.log("clicked delete")
-    $(this).attr('style', "background-color: red");
+$('body').on('click', '.pin', function() {
+    console.log("here")
+    console.log(this)
+    $('.pin').toggleClass("pinColor")
 });
 
 })

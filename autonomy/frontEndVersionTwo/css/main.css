@@ -1,3 +1,16 @@
+.sideBarContent {
+  overflow: auto;
+  height: 100vh;
+}
+
+.cross {
+  text-decoration-line: line-through;
+}
+
+.pin.pinColor {
+  background-color: red;
+}
+
 .content {
   padding: 0 !important;
   position: relative;
