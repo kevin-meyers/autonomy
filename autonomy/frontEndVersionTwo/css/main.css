@@ -2,7 +2,13 @@
   overflow: auto;
   height: 100vh;
 }
+/* .fa-newspaper {
+  display: none;
+} */
 
+.projectText {
+  align-content: center;
+}
 .cross {
   text-decoration-line: line-through;
 }
