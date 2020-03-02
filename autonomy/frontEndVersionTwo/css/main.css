@@ -307,8 +307,29 @@ background-color: #636669 !important;
   .slides {
     width: 89%;
   }
+  .btn-group-fab.active .btn-sub:nth-child(2) {
+    bottom: 35px;
+    right: 55px;
+  }
+  
+  .btn-group-fab.active .btn-sub:nth-child(3) {
+    bottom: 153px;
+    right: 55px;
+  }
+  
+  .btn-group-fab.active .btn-sub:nth-child(4) {
+    bottom: 114px;
+    right: 55px;
+  }
+  
+  .btn-group-fab.active .btn-sub:nth-child(5) {
+    bottom: 75px;
+    right: 55px;
+  }
+  
 }
-@media screen and (max-width: 767px) {
+
+/* @media screen and (max-width: 767px) {
   .slides {
     margin-top: 10%;
   }
@@ -316,4 +337,4 @@ background-color: #636669 !important;
 
 @media screen and (max-width: 601px) {
 
-}
+} */
