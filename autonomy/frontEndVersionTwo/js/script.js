@@ -90,7 +90,7 @@ $('has-tooltip').tooltip();
   $('span').bind('dblclick', function(){
         console.log(this)
         console.log($(this).siblings("p")[0])
-        $(this).siblings("p").attr('contentEditable',true);
+        $(this).siblings("p").attr('contentEditable', true);
     });
 
   $('body').on('click', '.hideSub', function(){
