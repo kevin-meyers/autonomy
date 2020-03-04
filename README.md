@@ -26,7 +26,7 @@ A personal time management system for breaking down tasks and planning out your 
 
 * Print out task list - self explanatory.
 
-* Mass removal - For those spontanious ones.
+* Mass removal - For those spontaneous ones.
 
 * Personal ordering - Each user can choose top-to-bottom or bottom-to-top
 
