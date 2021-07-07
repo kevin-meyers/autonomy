@@ -25,6 +25,22 @@ class Task(models.Model):
         return self.name
 
 
+class SubTask(models.Model):
+    """Model for a subtask.
+
+    Has all properties of Task, plus a relationship to that task
+    """
+
+    name = models.CharField(max_length=100, help_text="The name of the task")
+    description = models.CharField(max_length=1000, blank=True,
+                                   help_text="More details")
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    pinned = models.BooleanField(default=False)
+    parent_task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+
 class TaskForm(ModelForm):
     """Form for a new task"""
 
